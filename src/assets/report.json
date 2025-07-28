@@ -1,0 +1,512 @@
+{
+  "kpi": {
+    "total": 1211,
+    "inbound": "962",
+    "outbound": "249",
+    "answered_pct": 82.4,
+    "missed_pct": 14.0,
+    "vm_pct": 3.0,
+    "blocked_pct": 0.6,
+    "avg_dur": "0 days 00:00:26.285714285",
+    "median_dur": "0 days 00:00:10",
+    "talk_time": "0 days 08:50:32",
+    "longest": {
+      "duration": "0 days 00:29:46",
+      "from_name": "Yitzi Wurtzel",
+      "to_name": "Daniel Leubitz",
+      "time": "2024-12-17 08:14:41+02:00"
+    }
+  },
+  "top_talk": [
+    {
+      "owner": "Daniel Leubitz",
+      "talk_time": "0 days 04:52:23"
+    },
+    {
+      "owner": "Unassigned",
+      "talk_time": "0 days 03:37:58"
+    },
+    {
+      "owner": "Olena Bezvershenko",
+      "talk_time": "0 days 00:06:15"
+    },
+    {
+      "owner": "David Nall",
+      "talk_time": "0 days 00:05:50"
+    },
+    {
+      "owner": "Viktor Kapralov",
+      "talk_time": "0 days 00:02:35"
+    }
+  ],
+  "top_numbers": [
+    {
+      "From Number": "+12172813880",
+      "calls": 29
+    },
+    {
+      "From Number": "+14159448585",
+      "calls": 16
+    },
+    {
+      "From Number": "+19083325061",
+      "calls": 14
+    },
+    {
+      "From Number": "+17473224614",
+      "calls": 12
+    },
+    {
+      "From Number": "Ext: 227",
+      "calls": 12
+    }
+  ],
+  "top_locations": [
+    {
+      "location": "New Jersey",
+      "calls": 131
+    },
+    {
+      "location": "California",
+      "calls": 69
+    },
+    {
+      "location": "New York",
+      "calls": 51
+    },
+    {
+      "location": "Texas",
+      "calls": 43
+    },
+    {
+      "location": "Georgia",
+      "calls": 30
+    },
+    {
+      "location": "CHAMPAIGN, IL",
+      "calls": 29
+    },
+    {
+      "location": "Florida",
+      "calls": 22
+    },
+    {
+      "location": "Virginia",
+      "calls": 19
+    },
+    {
+      "location": "HAWTHORNE, NJ",
+      "calls": 14
+    },
+    {
+      "location": "Illinois",
+      "calls": 12
+    }
+  ],
+  "miss_by_owner": [
+    {
+      "owner": "Alex Schwarz",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "owner": "Alexander Egorin",
+      "total": 2,
+      "missed": 1,
+      "missed_pct": 50.0
+    },
+    {
+      "owner": "Dan T2 Leubitz",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "owner": "David Nall",
+      "total": 2,
+      "missed": 1,
+      "missed_pct": 50.0
+    },
+    {
+      "owner": "Doreen Gerber",
+      "total": 2,
+      "missed": 2,
+      "missed_pct": 100.0
+    },
+    {
+      "owner": "Roman Pashkovskii",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "owner": "Unassigned",
+      "total": 223,
+      "missed": 54,
+      "missed_pct": 24.2
+    },
+    {
+      "owner": "Viktor Kapralov",
+      "total": 4,
+      "missed": 1,
+      "missed_pct": 25.0
+    }
+  ],
+  "miss_days": [
+    {
+      "Date": "2023-07-30",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2023-08-14",
+      "total": 3,
+      "missed": 2,
+      "missed_pct": 66.7
+    },
+    {
+      "Date": "2023-09-13",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2023-09-17",
+      "total": 2,
+      "missed": 2,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2023-09-21",
+      "total": 9,
+      "missed": 5,
+      "missed_pct": 55.6
+    },
+    {
+      "Date": "2023-10-02",
+      "total": 4,
+      "missed": 2,
+      "missed_pct": 50.0
+    },
+    {
+      "Date": "2023-11-06",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2023-12-26",
+      "total": 5,
+      "missed": 3,
+      "missed_pct": 60.0
+    },
+    {
+      "Date": "2024-01-04",
+      "total": 9,
+      "missed": 3,
+      "missed_pct": 33.3
+    },
+    {
+      "Date": "2024-01-05",
+      "total": 2,
+      "missed": 1,
+      "missed_pct": 50.0
+    },
+    {
+      "Date": "2024-01-14",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2024-01-17",
+      "total": 6,
+      "missed": 3,
+      "missed_pct": 50.0
+    },
+    {
+      "Date": "2024-01-29",
+      "total": 5,
+      "missed": 2,
+      "missed_pct": 40.0
+    },
+    {
+      "Date": "2024-02-01",
+      "total": 9,
+      "missed": 9,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2024-02-22",
+      "total": 6,
+      "missed": 2,
+      "missed_pct": 33.3
+    },
+    {
+      "Date": "2024-03-01",
+      "total": 9,
+      "missed": 3,
+      "missed_pct": 33.3
+    },
+    {
+      "Date": "2024-03-12",
+      "total": 5,
+      "missed": 2,
+      "missed_pct": 40.0
+    },
+    {
+      "Date": "2024-03-14",
+      "total": 6,
+      "missed": 2,
+      "missed_pct": 33.3
+    },
+    {
+      "Date": "2024-03-18",
+      "total": 3,
+      "missed": 1,
+      "missed_pct": 33.3
+    },
+    {
+      "Date": "2024-03-20",
+      "total": 4,
+      "missed": 2,
+      "missed_pct": 50.0
+    },
+    {
+      "Date": "2024-04-05",
+      "total": 3,
+      "missed": 2,
+      "missed_pct": 66.7
+    },
+    {
+      "Date": "2024-04-15",
+      "total": 5,
+      "missed": 2,
+      "missed_pct": 40.0
+    },
+    {
+      "Date": "2024-04-26",
+      "total": 2,
+      "missed": 2,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2024-04-29",
+      "total": 4,
+      "missed": 2,
+      "missed_pct": 50.0
+    },
+    {
+      "Date": "2024-05-20",
+      "total": 2,
+      "missed": 1,
+      "missed_pct": 50.0
+    },
+    {
+      "Date": "2024-07-23",
+      "total": 3,
+      "missed": 1,
+      "missed_pct": 33.3
+    },
+    {
+      "Date": "2024-08-07",
+      "total": 4,
+      "missed": 2,
+      "missed_pct": 50.0
+    },
+    {
+      "Date": "2024-11-12",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2024-11-18",
+      "total": 2,
+      "missed": 2,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2024-12-28",
+      "total": 3,
+      "missed": 1,
+      "missed_pct": 33.3
+    },
+    {
+      "Date": "2025-01-16",
+      "total": 3,
+      "missed": 1,
+      "missed_pct": 33.3
+    },
+    {
+      "Date": "2025-02-27",
+      "total": 6,
+      "missed": 5,
+      "missed_pct": 83.3
+    },
+    {
+      "Date": "2025-03-07",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-04-23",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-05-22",
+      "total": 5,
+      "missed": 2,
+      "missed_pct": 40.0
+    },
+    {
+      "Date": "2025-06-13",
+      "total": 2,
+      "missed": 1,
+      "missed_pct": 50.0
+    },
+    {
+      "Date": "2025-06-16",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-06-18",
+      "total": 3,
+      "missed": 3,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-06-19",
+      "total": 2,
+      "missed": 2,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-06-20",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-06-23",
+      "total": 3,
+      "missed": 2,
+      "missed_pct": 66.7
+    },
+    {
+      "Date": "2025-06-24",
+      "total": 2,
+      "missed": 1,
+      "missed_pct": 50.0
+    },
+    {
+      "Date": "2025-06-25",
+      "total": 4,
+      "missed": 3,
+      "missed_pct": 75.0
+    },
+    {
+      "Date": "2025-06-26",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-06-27",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-06-30",
+      "total": 2,
+      "missed": 2,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-07-01",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-07-02",
+      "total": 2,
+      "missed": 1,
+      "missed_pct": 50.0
+    },
+    {
+      "Date": "2025-07-03",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-07-07",
+      "total": 3,
+      "missed": 2,
+      "missed_pct": 66.7
+    },
+    {
+      "Date": "2025-07-10",
+      "total": 4,
+      "missed": 2,
+      "missed_pct": 50.0
+    },
+    {
+      "Date": "2025-07-11",
+      "total": 1,
+      "missed": 1,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-07-15",
+      "total": 2,
+      "missed": 2,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-07-17",
+      "total": 2,
+      "missed": 1,
+      "missed_pct": 50.0
+    },
+    {
+      "Date": "2025-07-18",
+      "total": 2,
+      "missed": 2,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-07-22",
+      "total": 4,
+      "missed": 4,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-07-23",
+      "total": 3,
+      "missed": 3,
+      "missed_pct": 100.0
+    },
+    {
+      "Date": "2025-07-25",
+      "total": 2,
+      "missed": 2,
+      "missed_pct": 100.0
+    }
+  ],
+  "charts": {
+    "call_result": "call_result.png",
+    "daily_volume": "daily_volume.png"
+  },
+  "summary": "### Executive Summary\n\n1. **High Inbound Call Volume**: With 962 inbound calls (79.4% of total), focus on optimizing response strategies to enhance customer engagement and satisfaction.\n\n2. **Improve Answer Rates**: The current answered call rate is 82.4%. Implement training for staff on call handling and consider adjusting staffing during peak hours (10:00) to increase this rate and reduce missed calls (14.0%).\n\n3. **Reduce Missed Calls**: With 14.0% of calls missed, evaluate the call routing system and consider implementing a callback feature or additional staffing during high-traffic times to ensure more calls are answered.\n\n4. **Enhance Voicemail Management**: The voicemail percentage stands at 3.0%. Encourage teams to respond to voicemails promptly and consider integrating a system for tracking and prioritizing voicemail responses to improve customer follow-up.\n\n5. **Analyze Call Duration**: The average call duration is 26 seconds, with a median of 10 seconds. Review call scripts and processes to ensure they are effective in resolving issues quickly while maintaining quality service.\n\n6. **Leverage Long Call Insights**: The longest call lasted 29 minutes and involved specific individuals. Analyze this call for insights into complex customer interactions and use findings to train staff on handling similar situations more efficiently.",
+  "mdUrl": "assets/report.md"
+}

@@ -1,0 +1,148 @@
+<div class="dialog-header">
+  <div class="header-content">
+    <div class="title-section">
+      <mat-icon class="header-icon">analytics</mat-icon>
+      <h2 mat-dialog-title class="main-title">Call Intelligence Report</h2>
+    </div>
+    <a mat-icon-button
+       *ngIf="data.mdUrl"
+       [href]="data.mdUrl"
+       download
+       class="download-btn"
+       matTooltip="Download Report">
+      <mat-icon>file_download</mat-icon>
+    </a>
+  </div>
+</div>
+
+<mat-dialog-content class="content">
+
+  <!-- EXECUTIVE SUMMARY -->
+  <mat-card class="summary-card" elevation="0">
+    <mat-card-header>
+      <mat-icon mat-card-avatar class="summary-icon">summarize</mat-icon>
+      <mat-card-title>Executive Summary</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="summary-content" [innerHTML]="summaryHtml"></div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- KPI METRICS -->
+  <div class="metrics-section">
+    <h3 class="section-title">
+      <mat-icon>trending_up</mat-icon>
+      Key Performance Indicators
+    </h3>
+    <div class="kpi-grid">
+      <mat-card *ngFor="let k of objectKeys(displayKpi); let i = index" 
+                class="kpi-card" 
+                [class]="'kpi-' + (i % 4)"
+                elevation="2">
+        <div class="kpi-content">
+          <div class="kpi-value">{{ displayKpi[k] }}</div>
+          <div class="kpi-label">{{ k | titlecase }}</div>
+          <div class="kpi-icon">
+            <mat-icon>{{ getKpiIcon(k) }}</mat-icon>
+          </div>
+        </div>
+        <div class="kpi-gradient"></div>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- CHARTS SECTION -->
+  <div class="charts-section">
+    <h3 class="section-title">
+      <mat-icon>bar_chart</mat-icon>
+      Analytics Overview
+    </h3>
+    <div class="charts-grid">
+      <mat-card class="chart-card" elevation="2">
+        <mat-card-header>
+          <mat-card-title>Call Results Distribution</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="chart-wrapper">
+            <img [src]="'assets/' + data.charts.call_result" alt="Call results">
+          </div>
+        </mat-card-content>
+      </mat-card>
+      
+      <mat-card class="chart-card" elevation="2">
+        <mat-card-header>
+          <mat-card-title>Daily Call Volume</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="chart-wrapper">
+            <img [src]="'assets/' + data.charts.daily_volume" alt="Daily volume">
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- DATA TABLES SECTION -->
+  <div class="tables-section">
+    <h3 class="section-title">
+      <mat-icon>table_view</mat-icon>
+      Detailed Insights
+    </h3>
+    
+    <div class="tables-grid">
+      <mat-card class="data-table-card" elevation="2">
+        <mat-card-header>
+          <mat-icon mat-card-avatar class="table-icon talk-time">record_voice_over</mat-icon>
+          <mat-card-title>Top Talk-Time Owners</mat-card-title>
+          <mat-card-subtitle>Users with highest call engagement</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <app-simple-table [rows]="data.top_talk"></app-simple-table>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="data-table-card" elevation="2">
+        <mat-card-header>
+          <mat-icon mat-card-avatar class="table-icon external">phone</mat-icon>
+          <mat-card-title>Top External Numbers</mat-card-title>
+          <mat-card-subtitle>Most frequently contacted numbers</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <app-simple-table [rows]="data.top_numbers"></app-simple-table>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="data-table-card" elevation="2">
+        <mat-card-header>
+          <mat-icon mat-card-avatar class="table-icon location">location_on</mat-icon>
+          <mat-card-title>Top Inbound Locations</mat-card-title>
+          <mat-card-subtitle>Geographic call distribution</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <app-simple-table [rows]="data.top_locations"></app-simple-table>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card *ngIf="data.miss_by_owner.length" 
+                class="data-table-card alert-card" 
+                elevation="2">
+        <mat-card-header>
+          <mat-icon mat-card-avatar class="table-icon missed">phone_missed</mat-icon>
+          <mat-card-title>High-Miss Rate Owners</mat-card-title>
+          <mat-card-subtitle>Users requiring attention</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <app-simple-table [rows]="data.miss_by_owner"></app-simple-table>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+  <button mat-raised-button color="primary" mat-dialog-close>
+    <mat-icon>check</mat-icon>
+    Close Report
+  </button>
+</mat-dialog-actions>

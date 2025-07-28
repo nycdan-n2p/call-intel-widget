@@ -1,0 +1,8 @@
+<table class="simple">
+  <thead><tr><th *ngFor="let h of headers">{{ h }}</th></tr></thead>
+  <tbody>
+    <tr *ngFor="let r of rows">
+      <td *ngFor="let h of headers">{{ r[h] }}</td>
+    </tr>
+  </tbody>
+</table>
