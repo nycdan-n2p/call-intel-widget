@@ -1,5 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+:root {
+  --bg: #0e1014;
+  --card: rgba(28,30,39,.9);
+  --radius: 12px;
+  --txt-main: #e7e9ec;
+  --txt-sub: #8a8d97;
+  --grad-green: linear-gradient(135deg,#1b4630 0%,#264d3b 100%);
+  --grad-red:   linear-gradient(135deg,#4f1e28 0%,#512530 100%);
+  --grad-blue:  linear-gradient(135deg,#19334d 0%,#1b3d5b 100%);
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,body { height:100%; background:var(--bg); color:var(--txt-main); }
+body { margin:0; font-family:Roboto,Helvetica,Arial,sans-serif; }
+mat-dialog-container { background:transparent; padding:0; }

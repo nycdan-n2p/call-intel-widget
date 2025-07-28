@@ -2,7 +2,10 @@
   <thead><tr><th *ngFor="let h of headers">{{ h }}</th></tr></thead>
   <tbody>
     <tr *ngFor="let r of rows">
-      <td *ngFor="let h of headers">{{ r[h] }}</td>
+      <td *ngFor="let h of headers">
+        <span *ngIf="h === 'talk_time'; else normalCell">{{ r[h] | hhmmss }}</span>
+        <ng-template #normalCell>{{ r[h] }}</ng-template>
+      </td>
     </tr>
   </tbody>
 </table>
