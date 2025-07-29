@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npm start)",
-      "Bash(ng serve:*)"
+      "Bash(ng serve:*)",
+      "Bash(python3:*)"
     ],
     "deny": []
   }

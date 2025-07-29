@@ -2,7 +2,7 @@
 <mat-card class="section summary">
   <div class="date-row">
     <mat-icon>queue</mat-icon>
-    <span class="range">Call Queue Analytics</span>
+    <span class="range">{{ queueDisplayName }} Analytics</span>
     <span class="date-range">{{ dateRange }}</span>
   </div>
 
@@ -74,3 +74,19 @@
 
 <!-- ──────────────── INTERACTIVE CHARTS ──────────────── -->
 <app-queue-charts [data]="data"></app-queue-charts>
+
+<!-- ──────────────── MARKETING BANNER ──────────────── -->
+<mat-card class="section marketing-banner coach-banner">
+  <div class="banner-content">
+    <div class="banner-icon">
+      <mat-icon>analytics</mat-icon>
+    </div>
+    <div class="banner-text">
+      <h4>Want even more clarity and intelligent analytics?</h4>
+      <p>Click here to learn about net2phone Coach</p>
+    </div>
+    <div class="banner-arrow">
+      <mat-icon>arrow_forward</mat-icon>
+    </div>
+  </div>
+</mat-card>

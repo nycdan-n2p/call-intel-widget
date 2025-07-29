@@ -15,6 +15,7 @@ export class QueueDialogComponent {
   displayKpi: Record<string, string | number> = {};
   summaryHtml: SafeHtml;
   dateRange: string;
+  queueDisplayName: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: QueueReportJSON,
@@ -35,6 +36,7 @@ export class QueueDialogComponent {
     this.summaryHtml = this.sanitizer.bypassSecurityTrustHtml(html);
     
     this.dateRange = this.calculateDateRange();
+    this.queueDisplayName = this.formatQueueName(data.queue_name);
   }
 
   getKpiIcon(kpiKey: string): string {
@@ -93,5 +95,16 @@ export class QueueDialogComponent {
     } else {
       return `${formatDate(startDate)} - ${formatDate(endDate)}`;
     }
+  }
+
+  private formatQueueName(queueName?: string): string {
+    if (!queueName) {
+      return 'Call Queue';
+    }
+    
+    return queueName
+      .split('_')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ') + ' Queue';
   }
 }

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface QueueReportJSON {
+  queue_name?: string;
   queue_metrics: {
     total_offered: string;
     total_answered: string;

@@ -50,9 +50,37 @@ def load_queue_csv(path: str) -> pd.DataFrame:
     # Normalize column names
     df.columns = df.columns.str.upper().str.strip()
     
-    # Parse the specific date/interval format
+    # Handle different column name formats
+    column_mapping = {
+        'CALLSOFFERED': 'CALLS OFFERED',
+        'CALLSANSWERED': 'ANSWERED CALLS', 
+        'CALLSABANDONED': 'ABANDONED CALLS',
+        'CALLSOVERFLOWED': 'OVERFLOWED CALLS',
+        'AVGTALKTIME': 'AVERAGE HANDLE TIME',
+        'AVGHOLDTIME': 'AVERAGE WAIT TIME',
+        'TIMESTAMP': 'DATETIME'
+    }
+    
+    # Rename columns to match expected format
+    for old_name, new_name in column_mapping.items():
+        if old_name in df.columns:
+            df[old_name] = df[old_name].rename(new_name)
+            df = df.rename(columns={old_name: new_name})
+    
+    # Add missing columns with default values if they don't exist
+    if 'OVERFLOWED CALLS' not in df.columns:
+        df['OVERFLOWED CALLS'] = 0
+    if 'MAXIMUM WAIT TIME' not in df.columns:
+        df['MAXIMUM WAIT TIME'] = df.get('AVERAGE WAIT TIME', 0)
+    if 'MINIMUM WAIT TIME' not in df.columns:
+        df['MINIMUM WAIT TIME'] = df.get('AVERAGE WAIT TIME', 0)
+    
+    # Parse the datetime format
     try:
-        if 'DATE' in df.columns and 'INTERVAL' in df.columns:
+        if 'DATETIME' in df.columns:
+            # Handle timestamp format like "2025-07-01 08:00"
+            df['DATETIME'] = pd.to_datetime(df['DATETIME'])
+        elif 'DATE' in df.columns and 'INTERVAL' in df.columns:
             df['DATETIME'] = df.apply(lambda row: parse_datetime_from_interval(
                 str(row['DATE']), str(row['INTERVAL'])), axis=1)
         else:
@@ -87,20 +115,38 @@ def load_agent_csv(path: str) -> pd.DataFrame:
     # Normalize column names
     df.columns = df.columns.str.upper().str.strip()
     
-    # Parse the specific date/interval format
+    # Handle different column name formats
+    column_mapping = {
+        'CALLSHANDLED': 'ANSWERED CALLS',
+        'AVGTALKTIME': 'AVERAGE HANDLE TIME',
+        'TOTALTALKTIME': 'TOTAL HANDLE TIME',
+        'AVAILABILITYPCT': 'AVAILABILITY PCT'
+    }
+    
+    # Rename columns to match expected format
+    for old_name, new_name in column_mapping.items():
+        if old_name in df.columns:
+            df = df.rename(columns={old_name: new_name})
+    
+    # Add missing columns with default values if they don't exist
+    if 'MAXIMUM HANDLE TIME' not in df.columns:
+        df['MAXIMUM HANDLE TIME'] = df.get('AVERAGE HANDLE TIME', 0)
+    if 'MINIMUM HANDLE TIME' not in df.columns:
+        df['MINIMUM HANDLE TIME'] = df.get('AVERAGE HANDLE TIME', 0)
+    
+    # Parse the date format
     try:
-        if 'DATE' in df.columns and 'INTERVAL' in df.columns:
-            df['DATETIME'] = df.apply(lambda row: parse_datetime_from_interval(
-                str(row['DATE']), str(row['INTERVAL'])), axis=1)
-        else:
-            df['DATETIME'] = pd.Timestamp.now()
-            
-        df = df.dropna(subset=['DATETIME'])
-        
-        if not df.empty:
+        if 'DATE' in df.columns:
+            # Handle date format like "2025-07-01" - convert to datetime for consistency
+            df['DATETIME'] = pd.to_datetime(df['DATE'])
+            df['DATE_ONLY'] = df['DATETIME'].dt.date
+            df['HOUR'] = 12  # Default hour since agents don't have hourly data
+        elif 'DATETIME' in df.columns:
+            df['DATETIME'] = pd.to_datetime(df['DATETIME'])
             df['DATE_ONLY'] = df['DATETIME'].dt.date
             df['HOUR'] = df['DATETIME'].dt.hour
         else:
+            df['DATETIME'] = pd.Timestamp.now()
             df['DATE_ONLY'] = pd.Timestamp.now().date()
             df['HOUR'] = 12
             
@@ -113,7 +159,7 @@ def load_agent_csv(path: str) -> pd.DataFrame:
     return df
 
 def parse_time_duration(time_str):
-    """Convert time string (HH:MM:SS or MM:SS) to total seconds"""
+    """Convert time string (HH:MM:SS or MM:SS) or numeric seconds to total seconds"""
     if pd.isna(time_str) or str(time_str).strip() == '' or str(time_str).strip().lower() in ['nan', 'null', '0', '00:00']:
         return 0
     try:
@@ -128,7 +174,7 @@ def parse_time_duration(time_str):
             elif len(parts) == 1:
                 return int(float(parts[0]))
         else:
-            # Just seconds or a number
+            # Just seconds or a number (common in newer CSV format)
             return int(float(time_str))
     except (ValueError, AttributeError):
         return 0
@@ -202,6 +248,33 @@ def analyze_service_level_trends(df: pd.DataFrame) -> pd.DataFrame:
     ).fillna(0).round(2)
     
     return hourly_trends[hourly_trends['TOTAL_OFFERED'] > 0].sort_values('ABANDONMENT_RATE', ascending=False)
+
+def extract_queue_name_from_filename(filepath: str) -> str:
+    """Extract queue name from CSV filename format: AgentSummary_queuename_version_interval_daterange_timestamp.csv"""
+    try:
+        filename = Path(filepath).name
+        # Remove file extension
+        name_without_ext = filename.rsplit('.', 1)[0]
+        # Split by underscores
+        parts = name_without_ext.split('_')
+        
+        if len(parts) >= 2 and parts[0] in ['AgentSummary', 'QueueCallSummary']:
+            # For patterns like AgentSummary_product_management_15min_..., we need to find where the queue name ends
+            # Look for common endings that indicate the queue name has ended
+            queue_parts = []
+            for i, part in enumerate(parts[1:], 1):  # Start from second element
+                # Stop when we hit version numbers, intervals, or dates
+                if (part.endswith('min') or 
+                    part.replace('.', '').isdigit() or  # version numbers like 2.0
+                    len(part) >= 8 and '-' in part and part.count('-') >= 2):  # date ranges
+                    break
+                queue_parts.append(part)
+            
+            if queue_parts:
+                return '_'.join(queue_parts)
+    except:
+        pass
+    return None
 
 def analyze_agent_performance(df: pd.DataFrame) -> dict:
     """Analyze individual agent performance"""
@@ -469,6 +542,14 @@ def main():
     if not queue_df.empty:
         print(f"Date range: {queue_df['DATETIME'].min()} to {queue_df['DATETIME'].max()}")
     
+    # Extract queue name from filename
+    queue_name = extract_queue_name_from_filename(args.queue_csv)
+    if args.agent_csv:
+        # Try agent CSV if queue CSV didn't yield a name
+        agent_queue_name = extract_queue_name_from_filename(args.agent_csv)
+        if not queue_name:
+            queue_name = agent_queue_name
+    
     agent_df = pd.DataFrame()
     if args.agent_csv and Path(args.agent_csv).exists():
         print("Loading agent data...")
@@ -514,6 +595,7 @@ def main():
     
     # Save JSON data
     json_data = {
+        "queue_name": queue_name,
         "queue_metrics": queue_metrics,
         "service_trends": service_trends.to_dict(orient="records"),
         "agent_performance": {
