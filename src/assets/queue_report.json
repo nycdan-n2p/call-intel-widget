@@ -1,0 +1,172 @@
+{
+  "queue_metrics": {
+    "total_offered": "15",
+    "total_answered": "9",
+    "total_abandoned": "6",
+    "total_overflowed": "0",
+    "abandonment_rate": 40.0,
+    "answer_rate": 60.0,
+    "overflow_rate": 0.0,
+    "avg_wait_time_sec": 35.6,
+    "max_wait_time_sec": 93,
+    "avg_handle_time_sec": 17.2,
+    "peak_interval": {
+      "datetime": "2025-07-09 13:30:00",
+      "answered_calls": "2",
+      "abandoned_calls": "0"
+    },
+    "worst_abandon_interval": {
+      "datetime": "2025-07-16 11:30:00",
+      "abandoned_calls": "2",
+      "answered_calls": "0"
+    }
+  },
+  "service_trends": [
+    {
+      "HOUR": 5,
+      "ANSWERED CALLS": 0,
+      "ABANDONED CALLS": 1,
+      "OVERFLOWED CALLS": 0,
+      "TOTAL_OFFERED": 1,
+      "ABANDONMENT_RATE": 100.0
+    },
+    {
+      "HOUR": 11,
+      "ANSWERED CALLS": 0,
+      "ABANDONED CALLS": 2,
+      "OVERFLOWED CALLS": 0,
+      "TOTAL_OFFERED": 2,
+      "ABANDONMENT_RATE": 100.0
+    },
+    {
+      "HOUR": 6,
+      "ANSWERED CALLS": 1,
+      "ABANDONED CALLS": 1,
+      "OVERFLOWED CALLS": 0,
+      "TOTAL_OFFERED": 2,
+      "ABANDONMENT_RATE": 50.0
+    },
+    {
+      "HOUR": 13,
+      "ANSWERED CALLS": 3,
+      "ABANDONED CALLS": 2,
+      "OVERFLOWED CALLS": 0,
+      "TOTAL_OFFERED": 5,
+      "ABANDONMENT_RATE": 40.0
+    },
+    {
+      "HOUR": 1,
+      "ANSWERED CALLS": 1,
+      "ABANDONED CALLS": 0,
+      "OVERFLOWED CALLS": 0,
+      "TOTAL_OFFERED": 1,
+      "ABANDONMENT_RATE": 0.0
+    },
+    {
+      "HOUR": 4,
+      "ANSWERED CALLS": 1,
+      "ABANDONED CALLS": 0,
+      "OVERFLOWED CALLS": 0,
+      "TOTAL_OFFERED": 1,
+      "ABANDONMENT_RATE": 0.0
+    },
+    {
+      "HOUR": 9,
+      "ANSWERED CALLS": 1,
+      "ABANDONED CALLS": 0,
+      "OVERFLOWED CALLS": 0,
+      "TOTAL_OFFERED": 1,
+      "ABANDONMENT_RATE": 0.0
+    },
+    {
+      "HOUR": 10,
+      "ANSWERED CALLS": 1,
+      "ABANDONED CALLS": 0,
+      "OVERFLOWED CALLS": 0,
+      "TOTAL_OFFERED": 1,
+      "ABANDONMENT_RATE": 0.0
+    },
+    {
+      "HOUR": 12,
+      "ANSWERED CALLS": 1,
+      "ABANDONED CALLS": 0,
+      "OVERFLOWED CALLS": 0,
+      "TOTAL_OFFERED": 1,
+      "ABANDONMENT_RATE": 0.0
+    }
+  ],
+  "agent_performance": {
+    "all_agents": [
+      {
+        "AGENT": "Yitzi Wurtzel",
+        "ANSWERED CALLS": 7,
+        "TOTAL_HANDLE_SEC": 141,
+        "AVG_HANDLE_SEC": 21.833333333333332,
+        "MAX_HANDLE_SEC": 82,
+        "AVG_HANDLE_TIME": 21.8,
+        "EFFICIENCY": 2.979
+      },
+      {
+        "AGENT": "Daniel Leubitz",
+        "ANSWERED CALLS": 1,
+        "TOTAL_HANDLE_SEC": 40,
+        "AVG_HANDLE_SEC": 40.0,
+        "MAX_HANDLE_SEC": 40,
+        "AVG_HANDLE_TIME": 40.0,
+        "EFFICIENCY": 1.5
+      },
+      {
+        "AGENT": "Doreen Gerber",
+        "ANSWERED CALLS": 1,
+        "TOTAL_HANDLE_SEC": 36,
+        "AVG_HANDLE_SEC": 36.0,
+        "MAX_HANDLE_SEC": 36,
+        "AVG_HANDLE_TIME": 36.0,
+        "EFFICIENCY": 1.667
+      }
+    ],
+    "top_volume": [
+      {
+        "AGENT": "Yitzi Wurtzel",
+        "ANSWERED CALLS": 7,
+        "AVG_HANDLE_TIME": 21.8
+      },
+      {
+        "AGENT": "Daniel Leubitz",
+        "ANSWERED CALLS": 1,
+        "AVG_HANDLE_TIME": 40.0
+      },
+      {
+        "AGENT": "Doreen Gerber",
+        "ANSWERED CALLS": 1,
+        "AVG_HANDLE_TIME": 36.0
+      }
+    ],
+    "most_efficient": [
+      {
+        "AGENT": "Yitzi Wurtzel",
+        "ANSWERED CALLS": 7,
+        "EFFICIENCY": 2.979,
+        "AVG_HANDLE_TIME": 21.8
+      },
+      {
+        "AGENT": "Doreen Gerber",
+        "ANSWERED CALLS": 1,
+        "EFFICIENCY": 1.667,
+        "AVG_HANDLE_TIME": 36.0
+      },
+      {
+        "AGENT": "Daniel Leubitz",
+        "ANSWERED CALLS": 1,
+        "EFFICIENCY": 1.5,
+        "AVG_HANDLE_TIME": 40.0
+      }
+    ]
+  },
+  "charts": {
+    "abandonment": "abandonment_trends.png",
+    "hourly": "hourly_patterns.png",
+    "agents": "agent_performance.png"
+  },
+  "summary": "### Executive Summary for Call Center Management\n\n1. **Service Level Concerns**: The current answer rate stands at 60%, indicating that only 9 out of 15 calls were answered. This falls short of industry benchmarks, which typically aim for an answer rate of 80% or higher.\n\n2. **High Abandonment Rate**: With an abandonment rate of 40%, 6 out of 15 calls were abandoned by customers before being answered. This suggests significant dissatisfaction and potential loss of business opportunities.\n\n3. **Agent Performance Insights**: The average handle time is 17 seconds, which is efficient; however, the combination of low answer rates and high abandonment suggests that agents may be overwhelmed or that staffing levels are insufficient during peak times.\n\n4. **Wait Time Analysis**: The average wait time of 35 seconds, with a maximum wait time of 1 minute and 33 seconds, indicates that customers are experiencing delays that could lead to increased abandonment rates, especially during peak periods.\n\n5. **Peak and Worst Periods Identification**: The peak call period was identified with 2 calls at 13:30 on July 9, 2025, while the worst abandonment period also had 2 calls at 11:30 on July 16, 2025. These times should be targeted for staffing adjustments and resource allocation.\n\n6. **Actionable Recommendations**: \n   - **Increase Staffing During Peak Times**: Adjust schedules to ensure adequate coverage during identified peak periods.\n   - **Implement Call Back Options**: Introduce a call-back feature to reduce abandonment rates and improve customer satisfaction.\n   - **Monitor and Train Agents**: Regularly review agent performance metrics and provide targeted training to enhance efficiency and customer interaction quality.\n   - **Enhance Self-Service Options**: Develop self-service resources to alleviate call volume and empower customers to resolve simple inquiries independently. \n\nBy addressing these key areas, we can significantly improve service levels, reduce abandonment rates, and enhance overall customer satisfaction."
+}

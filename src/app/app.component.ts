@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
     <div style="padding: 20px;">
       <h1>Analysis Widget</h1>
       <app-analysis-fab></app-analysis-fab>
+      <app-queue-fab></app-queue-fab>
       <app-simple-table></app-simple-table>
     </div>
   `,

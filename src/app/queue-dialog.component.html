@@ -1,0 +1,76 @@
+<!-- ──────────────── SUMMARY ──────────────── -->
+<mat-card class="section summary">
+  <div class="date-row">
+    <mat-icon>queue</mat-icon>
+    <span class="range">Call Queue Analytics</span>
+    <span class="date-range">{{ dateRange }}</span>
+  </div>
+
+  <div class="markdown" [innerHTML]="summaryHtml"></div>
+</mat-card>
+
+<!-- ──────────────── KPI GRID + QUEUE PERFORMANCE ──────────────── -->
+<mat-card class="section kpi">
+  <h3>Queue Performance Indicators</h3>
+  
+  <div class="kpi-grid">
+    <ng-container *ngFor="let k of objectKeys(displayKpi)">
+      <div class="tile">
+        <mat-icon>{{ getKpiIcon(k) }}</mat-icon>
+        <div class="value">{{ displayKpi[k] }}</div>
+        <div class="label">{{ k }}</div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="sentiment">
+    <h4>Call Resolution</h4>
+    <span class="score">{{ data.queue_metrics.answer_rate }}%</span>
+    <div class="bar">
+      <div class="good" [style.flex-basis.%]="data.queue_metrics.answer_rate"></div>
+      <div class="bad" [style.flex-basis.%]="data.queue_metrics.abandonment_rate"></div>
+      <div class="neutral" [style.flex-basis.%]="data.queue_metrics.overflow_rate"></div>
+    </div>
+    <div class="legend">
+      <span class="legend-item"><span class="color good"></span>Answered ({{ data.queue_metrics.answer_rate }}%)</span>
+      <span class="legend-item"><span class="color bad"></span>Abandoned ({{ data.queue_metrics.abandonment_rate }}%)</span>
+      <span class="legend-item"><span class="color neutral"></span>Overflow ({{ data.queue_metrics.overflow_rate }}%)</span>
+    </div>
+  </div>
+
+</mat-card>
+
+<!-- ──────────────── AGENT PERFORMANCE ──────────────── -->
+<mat-card class="section table">
+  <h3><mat-icon>person</mat-icon>All Agents Performance</h3>
+  <app-simple-table [rows]="data.agent_performance.all_agents"></app-simple-table>
+</mat-card>
+
+<mat-card class="section table">
+  <h3><mat-icon>trending_up</mat-icon>Top Volume Agents</h3>
+  <app-simple-table [rows]="data.agent_performance.top_volume"></app-simple-table>
+</mat-card>
+
+<mat-card class="section table">
+  <h3><mat-icon>speed</mat-icon>Most Efficient Agents</h3>
+  <app-simple-table [rows]="data.agent_performance.most_efficient"></app-simple-table>
+</mat-card>
+
+<!-- ──────────────── SERVICE TRENDS ──────────────── -->
+<mat-card class="section table">
+  <h3><mat-icon>schedule</mat-icon>Hourly Service Trends</h3>
+  <div class="scrollable-table">
+    <app-simple-table [rows]="data.service_trends"></app-simple-table>
+  </div>
+</mat-card>
+
+<!-- ──────────────── STATIC CHARTS ──────────────── -->
+<mat-card class="section charts">
+  <h3><mat-icon>insert_chart</mat-icon>Trend Analysis</h3>
+  <img class="chart" [src]="'assets/' + data.charts.abandonment" alt="Abandonment trends">
+  <img class="chart" [src]="'assets/' + data.charts.hourly" alt="Hourly patterns">
+  <img class="chart" [src]="'assets/' + data.charts.agents" alt="Agent performance">
+</mat-card>
+
+<!-- ──────────────── INTERACTIVE CHARTS ──────────────── -->
+<app-queue-charts [data]="data"></app-queue-charts>

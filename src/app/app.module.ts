@@ -14,20 +14,27 @@ import { MatTableModule  } from '@angular/material/table';
 import { AppComponent }            from './app.component';
 import { AnalysisFabComponent }    from './analysis-fab.component';
 import { AnalysisDialogComponent } from './analysis-dialog.component';
+import { QueueFabComponent }       from './queue-fab.component';
+import { QueueDialogComponent }    from './queue-dialog.component';
+import { QueueChartsComponent }    from './queue-charts.component';
 import { SimpleTableComponent }    from './simple-table.component';
 
 /* Pipes */
 import { MetricLabelPipe } from './metric-label.pipe';
 import { DurationPipe    } from './duration.pipe';
 
-/* Service */
+/* Services */
 import { AnalysisService } from './analysis.service';
+import { QueueService }    from './queue.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnalysisFabComponent,
     AnalysisDialogComponent,
+    QueueFabComponent,
+    QueueDialogComponent,
+    QueueChartsComponent,
     SimpleTableComponent,
     MetricLabelPipe,
     DurationPipe
@@ -42,7 +49,7 @@ import { AnalysisService } from './analysis.service';
     MatCardModule,
     MatTableModule
   ],
-  providers: [AnalysisService],
+  providers: [AnalysisService, QueueService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
